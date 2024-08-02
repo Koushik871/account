@@ -2,13 +2,13 @@
 FROM openjdk:17-jdk-slim
 
 # Set the working directory
-WORKDIR /app
+#WORKDIR /dockerImages
 
 # Copy the JAR file into the container
-COPY target/myapp.jar /app/myapp.jar
+COPY "target/myapp.jar" myapp.jar
 
 # Expose the port the app runs on
 EXPOSE 8080
 
 # Command to run the application
-ENTRYPOINT ["java", "-jar", "/app/myapp.jar"]
+ENTRYPOINT ["java", "-jar", "/myapp.jar"]

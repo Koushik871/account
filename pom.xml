@@ -10,7 +10,6 @@
 	</parent>
 	<groupId>com.eazybytes</groupId>
 	<artifactId>account</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>account</name>
 	<description>Microservice for Accounts</description>
 	<properties>
@@ -74,6 +73,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>myapp</finalName>
 	</build>
 
 </project>
