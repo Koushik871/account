@@ -2,11 +2,12 @@ package com.eazybytes.account.controller;
 
 import com.eazybytes.account.Entity.Account;
 import com.eazybytes.account.service.AccountService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+@Tag(name = "Account-Service",description = "Account EndPoints")
 @RestController
 public class AccountController {
 
