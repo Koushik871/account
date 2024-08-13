@@ -1,8 +1,7 @@
 package com.eazybytes.account.Entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,7 +13,10 @@ import java.util.Objects;
 @Table(name="Employees")
 public class Employee {
 
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
+
         private String empName;
         private Boolean trainingStatus;
         private Boolean newJoiner;

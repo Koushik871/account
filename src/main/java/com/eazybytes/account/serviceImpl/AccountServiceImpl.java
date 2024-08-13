@@ -7,10 +7,13 @@ import com.eazybytes.account.repository.AccountRepository;
 import com.eazybytes.account.service.AccountService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -32,6 +35,34 @@ public class AccountServiceImpl implements AccountService {
     public void delete(String name) {
         accRepo.deleteByName(name);
     }
+
+    @Override
+    public CompletableFuture<Object> getProductDetails(String accName) {
+
+
+        return null;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //    public Map<Product, Supplier> matchProductWithSupplier(List<Product> productList, List<Supplier> supplierList){

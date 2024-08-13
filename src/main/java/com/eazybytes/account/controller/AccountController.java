@@ -7,6 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
+
 @Tag(name = "Account-Service",description = "Account EndPoints")
 @RestController
 public class AccountController {
@@ -31,5 +35,14 @@ public class AccountController {
           service.delete(name);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
+
+    @GetMapping("/details/{accName}")
+    public CompletableFuture<ResponseEntity<Object>> getdetails(@PathVariable String accName){
+
+        return service.getProductDetails(accName).thenApply(ResponseEntity::ok);
+    }
+
+
+
 
 }
