@@ -1,11 +1,16 @@
 package com.eazybytes.account.serviceImpl;
 
+import com.eazybytes.account.Dto.CustomerDto;
 import com.eazybytes.account.Entity.Account;
+import com.eazybytes.account.Entity.Customer;
 import com.eazybytes.account.Entity.Product;
 import com.eazybytes.account.Entity.Supplier;
+import com.eazybytes.account.mapper.CustomerMapper;
 import com.eazybytes.account.repository.AccountRepository;
+import com.eazybytes.account.repository.CustomerRepository;
 import com.eazybytes.account.service.AccountService;
 import jakarta.transaction.Transactional;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -20,14 +25,27 @@ import java.util.stream.Collectors;
 
 @Service
 @Transactional
+@AllArgsConstructor
 public class AccountServiceImpl implements AccountService {
 
 
     @Autowired
     public AccountRepository accRepo;
 
+    @Autowired
+    public CustomerRepository customerRepo;
+
+
     @Override
-    public Account createAccount(Account account){
+    public void createAccount(CustomerDto customerDto) {
+        Customer customer = CustomerMapper.mapT0Customer(customerDto,new Customer());
+
+        Customer savedCustomer = customerRepo.save(customer);
+
+    }
+
+    @Override
+    public Account createAccount1(Account account){
         return accRepo.save(account);
 
     }
